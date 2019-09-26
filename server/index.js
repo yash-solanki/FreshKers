@@ -3,10 +3,8 @@ const bodyParser = require('body-parser');
 const dbConfig = require('./config/database.config.js');
 const mongoose = require('mongoose');
 const app = express();
-// const NoteCtrl = require('./routes/note.routes.js');
 
 mongoose.Promise = global.Promise;
-
 
 // Connecting to the database
 mongoose.connect(dbConfig.url, {
@@ -18,13 +16,10 @@ mongoose.connect(dbConfig.url, {
     process.exit();
 });
 
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-
-// Require Notes routes
 require('./routes/note.routes.js')(app);
-// new NoteCtrl(app);
 
 // listen for requests
 app.listen(4040, () => {

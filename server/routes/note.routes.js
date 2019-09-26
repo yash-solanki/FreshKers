@@ -1,13 +1,6 @@
-// const Notes = require('../controller/note.controller');
-// class noteCtrl {
-//     constructor(app) {
-//         console.log("constructor====22>");
-//         app.get('/notes', Notes.create);
-//     }
-// }
-
 module.exports = (app) => {
     const notes = require('../controller/note.controller');
+    const store = require('');
 
     // Create a new Note
     app.post('/notes',notes.create);
@@ -23,6 +16,6 @@ module.exports = (app) => {
 
     // Delete a Note with noteId
     app.delete('/notes/:noteId', notes.delete);
-}
 
-// module.export = noteCtrl;
+    app.post('/store/addItem', store.addItem);
+};

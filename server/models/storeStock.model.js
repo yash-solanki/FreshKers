@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
 
 const StoreSchema = mongoose.Schema({
-    title: String,
-    content: String
+    productId: String,
+    productName: String,
+    productPrice: Number,
+    productStoreQty: Number
 }, {
     timestamps: true
 });
 
-module.exports = mongoose.model('Store', StoreSchema);
+module.exports = mongoose.model('StoreStock', StoreSchema);
