@@ -4,9 +4,11 @@ const RackSchema = mongoose.Schema({
     rackId: String,
     rackContainer: String,
     rackCapacity: Number,
-    rackCurrentQty: Number
+    rackCurrentQty: Number,
+    isActive: {type: Boolean, default: true}
 }, {
-    timestamps: true
+    timestamps: true,
+    collectionName: 'racks'
 });
 
-module.exports = mongoose.model('Rack', RackSchema);
+module.exports = mongoose.model('Racks', RackSchema);

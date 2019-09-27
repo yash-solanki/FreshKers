@@ -1,5 +1,6 @@
 module.exports = {
-    url: 'mongodb://localhost:27017/easy-notes'
+    // url: 'mongodb://localhost:27017/easy-notes'
+    url: "mongodb+srv://yash-solanki:yash@solanki@freshkers-mpnaz.mongodb.net/FreshKers?retryWrites=true&w=majority"
 };
 
 

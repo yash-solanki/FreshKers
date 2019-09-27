@@ -12,9 +12,11 @@ const CustomerSchema = mongoose.Schema({
     customerContactNo: Number,
     customerPurchaseDetail: [trolleyContainSchema],
     customerBillAmount: Number,
-    BillIssuerName: String
+    BillIssuerName: String,
+    isActive: {type: Boolean, default: true}
 }, {
-    timestamps: true
+    timestamps: true,
+    collectionName: 'customer'
 });
 
 module.exports = mongoose.model('Customer', CustomerSchema);

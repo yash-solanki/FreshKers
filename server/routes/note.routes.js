@@ -1,6 +1,7 @@
 module.exports = (app) => {
     const notes = require('../controller/note.controller');
-    const store = require('');
+    const store = require('../controller/store.controller');
+    const rack = require('../controller/rack.controller');
 
     // Create a new Note
     app.post('/notes',notes.create);
@@ -18,4 +19,7 @@ module.exports = (app) => {
     app.delete('/notes/:noteId', notes.delete);
 
     app.post('/store/addItem', store.addItem);
+
+    app.get('/rack/getAvailQty/:rackId/:rackContainer', rack.getAvailQty);
+    // app.get('/rack/getAvailQty', rack.getAvailQty)
 };

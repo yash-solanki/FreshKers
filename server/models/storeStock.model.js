@@ -4,9 +4,11 @@ const StoreSchema = mongoose.Schema({
     productId: String,
     productName: String,
     productPrice: Number,
-    productStoreQty: Number
+    productStoreQty: Number,
+    isActive: {type: Boolean, default: true}
 }, {
-    timestamps: true
+    timestamps: true,
+    collectionName: 'storeStock'
 });
 
 module.exports = mongoose.model('StoreStock', StoreSchema);

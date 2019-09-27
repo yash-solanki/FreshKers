@@ -9,9 +9,12 @@ const ContainerSchema = mongoose.Schema({
 
 const TrollySchema = mongoose.Schema({
     trollyId: String,
-    trollyContainer: [ContainerSchema]
+    trollyContainer: [ContainerSchema],
+    isCheckout: {type: Boolean, default: false},
+    isActive: {type: Boolean, default: true}
 }, {
-    timestamps: true
+    timestamps: true,
+    collectionName: 'trolley'
 });
 
 module.exports = mongoose.model('Trolly', TrollySchema);
