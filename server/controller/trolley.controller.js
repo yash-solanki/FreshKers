@@ -100,6 +100,7 @@ exports.calculateBill = async (req, res) => {
 
 // exports.calculateBill = async (req, res) => {
 exports.trolleyItemDetails = async (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
     if (!req.params.trolleyId) {
         throw new Error('trolleyId is missing');
     }
