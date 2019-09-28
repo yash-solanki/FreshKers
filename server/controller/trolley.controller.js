@@ -19,9 +19,10 @@ exports.addEditItemToTrolley = async (req, res) => {
     if (!req.params.productId) {
         throw new Error('itemId is missing');
     }
-    if (!req.params.trolleyId) {
-        throw new Error('item name is missing');
-    }
+    // if (!req.params.trolleyId) {
+    //     throw new Error('item name is missing');
+    // }
+    req.params.trolleyId = req.params.trolleyId || 11256435;
     // check for array
     const existData = await Trolley.find({trollyId: req.params.trolleyId}).lean();
     if (existData[0].isCheckout) {

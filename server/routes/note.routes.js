@@ -25,7 +25,7 @@ module.exports = (app) => {
     // Trolley
     //Add Remove Product From Trolly
     app.post('/trolley/addTrolley', trolley.addTrolley);
-    app.get('/trolley/addEditItemToTrolley/:productId/:trolleyId', trolley.addEditItemToTrolley);
+    app.get('/trolley/addEditItemToTrolley/:productId', trolley.addEditItemToTrolley);
     app.get('/trolley/productDetail/:trolleyId', trolley.trolleyItemDetails);
     app.get('/trolley/calculateBill/:trolleyId', trolley.calculateBill);
     app.get('/trolley/checkoutTrolley/:trolleyId', trolley.checkoutTrolley);
