@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const ContainerSchema = mongoose.Schema({
-    productId: {type: String},
+    productIds: {type: Array},
     productName: {type: String},
     productQty: {type: Number},
     productPrice: {type: Number}

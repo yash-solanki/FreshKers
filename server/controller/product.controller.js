@@ -1,14 +1,14 @@
-const Store = require('../models/storeStock.model');
+const Product = require('../models/product.model');
 
-exports.addItemToStore = async (req, res) => {
+exports.addProduct = async (req, res) => {
     if(!req.body) {
         throw new Error('Product data is not provided');
     }
-    const product = new Store({
-        productId: req.body.productId,
+    const product = new Product({
+        productCode: req.body.productCode,
         productName: req.body.productName,
         productPrice: req.body.productPrice,
-        productStoreQty: req.body.productQty
+        productId: req.body.productId
     });
     const data = await product.save();
     if (!data) {

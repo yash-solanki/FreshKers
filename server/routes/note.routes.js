@@ -1,25 +1,42 @@
 module.exports = (app) => {
-    const notes = require('../controller/note.controller');
     const store = require('../controller/store.controller');
     const rack = require('../controller/rack.controller');
+    const trolley = require('../controller/trolley.controller');
+    const product = require('../controller/product.controller');
+    const customer = require('../controller/customer.controller');
 
-    // Create a new Note
-    app.post('/notes',notes.create);
+    //Product
+    // add product to Products
+    app.post('/product/addProduct', product.addProduct);
 
-    // Retrieve all Notes
-    app.get('/notes', notes.findAll);
+    //Store
+    // add item to store
+    app.post('/store/addItemToStore', store.addItemToStore);
 
-    // Retrieve a single Note with noteId
-    app.get('/notes/:noteId', notes.findOne);
+    // Rack
+    // get Available Qty from rack
+    app.get('/rack/getAvailQty/:rackId/:rackContainer', rack.getAvailQtyOfRack);
+    // get Available Qty from rack
+    app.get('/rack/getAvailQty', rack.getAvailQtyOfAllRacks);
+    // fill rack
+    app.get('/rack/fillTheRack/:rackId/:rackContainer', rack.fillTheRack);
+    app.post('/rack/addDataRack', rack.addDataRack);
 
-    // Update a Note with noteId
-    app.put('/notes/:noteId', notes.update);
+    // Trolley
+    //Add Remove Product From Trolly
+    app.post('/trolley/addTrolley', trolley.addTrolley);
+    app.get('/trolley/addEditItemToTrolley/:productId/:trolleyId', trolley.addEditItemToTrolley);
+    app.get('/trolley/productDetail/:trolleyId', trolley.trolleyItemDetails);
+    app.get('/trolley/calculateBill/:trolleyId', trolley.calculateBill);
+    app.get('/trolley/checkoutTrolley/:trolleyId', trolley.checkoutTrolley);
+    app.get('/trolley/resetTrolley/:trolleyId', trolley.resetTrolley);
 
-    // Delete a Note with noteId
-    app.delete('/notes/:noteId', notes.delete);
+    // Customer
+    // Add customerDetails
+    app.post('/customer/addCustomer', customer.addCustomer);
 
-    app.post('/store/addItem', store.addItem);
+    app.get('/', () => {
+        console.log('hello');
+    })
 
-    app.get('/rack/getAvailQty/:rackId/:rackContainer', rack.getAvailQty);
-    // app.get('/rack/getAvailQty', rack.getAvailQty)
 };
